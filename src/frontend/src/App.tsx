@@ -3,7 +3,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Toaster } from "@/components/ui/sonner";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import {
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Loader2,
+  Stethoscope,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -59,22 +65,22 @@ const PRODUCTS = [
   {
     name: "Adult Diapers",
     desc: "High-absorbency adult protective underwear for comfort and dignity",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d6de3-ab47-74d5-bf19-5f147982cdd3.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d6e10-e4bf-7312-8920-79fce94ea488.jpeg",
   },
   {
     name: "Diaper Pants",
     desc: "Pull-up style disposable pants for active users",
-    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d6de3-adb5-77bb-810b-cb1a2553fbba.jpg",
+    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d6e10-e30d-716b-a443-63a4bb33461f.jpg",
   },
   {
     name: "Underpads / Bed Pads",
     desc: "Waterproof disposable bed protection pads",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d6de5-d09c-707e-8808-53cbbf3e1b5f.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d6e10-e485-7571-a423-d79f1ad81ae7.jpeg",
   },
   {
     name: "Nebulizer Machine",
     desc: "Efficient aerosol therapy device for respiratory conditions",
-    img: "/assets/dr-morepen-cn-10-nebulizer-original-imafkxzjqmhfunvh-019d6de5-d145-710f-ad04-f651273835f5.webp",
+    img: "/assets/dr-morepen-cn-10-nebulizer-original-imafkxzjqmhfunvh-019d6e10-e46e-746f-af24-b2f7ba3e9d53.webp",
   },
   {
     name: "Pulse Oximeter",
@@ -93,6 +99,7 @@ const SERVICE_AREAS = [
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },
+  { label: "Our Doctor", href: "#doctor" },
   { label: "Our Services", href: "#services" },
   { label: "Products", href: "#products" },
   { label: "Procedures", href: "#procedures" },
@@ -566,6 +573,114 @@ function AboutSection() {
   );
 }
 
+function DoctorSection() {
+  return (
+    <section id="doctor" className="py-16 px-4 max-w-6xl mx-auto">
+      <SectionHeading
+        title="Our Medical Advisor"
+        subtitle="Expert guidance from a qualified geriatrician ensuring the highest standards of elder care."
+      />
+      <div className="flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-card rounded-2xl shadow-card border border-border p-8 max-w-md w-full"
+          data-ocid="doctor.card"
+        >
+          {/* Avatar / Icon */}
+          <div className="flex flex-col items-center text-center mb-6">
+            <div
+              className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-md"
+              style={{
+                background:
+                  "linear-gradient(135deg, oklch(0.65 0.12 200), oklch(0.5 0.1 230))",
+              }}
+            >
+              <Stethoscope className="w-10 h-10 text-white" />
+            </div>
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-1"
+              style={{ color: "oklch(0.55 0.10 210)" }}
+            >
+              Medical Advisor
+            </p>
+            <h3 className="text-xl font-bold text-foreground">
+              Dr. Keshav Agarwal
+            </h3>
+            <p className="text-muted-foreground text-sm font-medium mt-1">
+              MBBS, PGDGM, CCEBDM
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div
+            className="h-px w-full mb-6"
+            style={{ background: "oklch(0.88 0.02 220)" }}
+          />
+
+          {/* Specialty */}
+          <div className="flex items-center gap-3 mb-4">
+            <span
+              className="flex items-center justify-center w-9 h-9 rounded-lg shrink-0"
+              style={{ background: "oklch(0.92 0.06 200)" }}
+            >
+              <span className="text-lg">👴</span>
+            </span>
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide font-semibold">
+                Specialty
+              </p>
+              <p className="text-sm font-semibold text-foreground">
+                Geriatrician (Elder Care)
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div
+            className="h-px w-full mb-4"
+            style={{ background: "oklch(0.92 0.005 220)" }}
+          />
+
+          {/* Contact */}
+          <div className="space-y-3">
+            <a
+              href="mailto:doctorkeshavagarwal@gmail.com"
+              className="flex items-center gap-3 text-sm text-foreground hover:text-teal-600 transition-colors group"
+              data-ocid="doctor.email_link"
+            >
+              <span
+                className="flex items-center justify-center w-9 h-9 rounded-lg shrink-0 group-hover:scale-110 transition-transform"
+                style={{ background: "oklch(0.92 0.06 200)" }}
+              >
+                <span className="text-base">📧</span>
+              </span>
+              <span className="font-medium break-all">
+                doctorkeshavagarwal@gmail.com
+              </span>
+            </a>
+            <a
+              href="tel:+919748180114"
+              className="flex items-center gap-3 text-sm text-foreground hover:text-teal-600 transition-colors group"
+              data-ocid="doctor.phone_link"
+            >
+              <span
+                className="flex items-center justify-center w-9 h-9 rounded-lg shrink-0 group-hover:scale-110 transition-transform"
+                style={{ background: "oklch(0.92 0.06 200)" }}
+              >
+                <span className="text-base">📞</span>
+              </span>
+              <span className="font-medium">+91 9748180114</span>
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function ServiceCard({
   icon,
   title,
@@ -910,6 +1025,11 @@ export default function App() {
 
       {/* ── About Us ─────────────────────────────────────────── */}
       <AboutSection />
+
+      {/* ── Our Doctor ───────────────────────────────────────── */}
+      <section style={{ background: "oklch(0.965 0.008 220)" }}>
+        <DoctorSection />
+      </section>
 
       {/* ── Services ─────────────────────────────────────────── */}
       <section id="services" className="py-16 px-4 max-w-6xl mx-auto">
