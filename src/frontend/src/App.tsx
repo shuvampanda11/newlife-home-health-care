@@ -3,9 +3,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Toaster } from "@/components/ui/sonner";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, Loader2 } from "lucide-react";
-import { motion } from "motion/react";
-import { useState } from "react";
+import { CheckCircle2, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { BookingModal } from "./components/BookingModal";
 import { useSubmitInquiry } from "./hooks/useQueries";
@@ -140,6 +140,7 @@ const NAV_LINKS = [
   { label: "About Us", href: "#about" },
   { label: "Our Services", href: "#services" },
   { label: "Products", href: "#products" },
+  { label: "Procedures", href: "#procedures" },
   { label: "Contact Us", href: "#contact" },
 ];
 
@@ -148,6 +149,67 @@ const STATS = [
   { icon: "📅", value: "2019", label: "Established: 20 Jan 2019" },
   { icon: "🎓", value: "GNM", label: "Certified Professionals" },
   { icon: "🏥", value: "Apollo", label: "Hospital Trained Staff" },
+];
+
+const PROCEDURES = [
+  {
+    id: "dressing",
+    name: "Wound Dressing",
+    icon: "🩹",
+    desc: "Professional wound care and sterile dressing changes performed by trained nurses, ensuring clean and safe recovery at home.",
+    images: [
+      "/assets/procedures/dressing-1.jpg",
+      "/assets/procedures/dressing-2.jpg",
+      "/assets/procedures/dressing-3.jpg",
+      "/assets/procedures/dressing-4.jpg",
+    ],
+  },
+  {
+    id: "stitch",
+    name: "Stitch",
+    icon: "🧵",
+    desc: "Professional stitching of wounds by trained nursing staff, ensuring clean closure with sterile technique to promote safe and quick healing.",
+    images: [
+      "/assets/procedures/stitch-1.jpg",
+      "/assets/procedures/stitch-2.jpg",
+      "/assets/procedures/stitch-3.jpg",
+      "/assets/procedures/stitch-4.jpg",
+    ],
+  },
+  {
+    id: "anima",
+    name: "Enema (Anima)",
+    icon: "💊",
+    desc: "Medically supervised enema procedures for bowel management, administered safely and with full dignity by our trained staff.",
+    images: [
+      "/assets/procedures/anima-1.jpg",
+      "/assets/procedures/anima-2.jpg",
+      "/assets/procedures/anima-3.jpg",
+    ],
+  },
+  {
+    id: "catheter",
+    name: "Catheter Care",
+    icon: "💉",
+    desc: "Expert urinary catheter insertion, maintenance, and removal performed by certified nursing professionals with strict sterile protocols for patient comfort and safety.",
+    images: [
+      "/assets/procedures/catheter-1.jpg",
+      "/assets/procedures/catheter-2.jpg",
+      "/assets/procedures/catheter-3.jpg",
+    ],
+  },
+  {
+    id: "stitch-removal",
+    name: "Stitch Removal",
+    icon: "✂️",
+    desc: "Careful and hygienic removal of sutures by certified nursing professionals at your home, minimising discomfort and reducing the risk of infection.",
+    images: [
+      "/assets/procedures/stitch-removal-1.jpg",
+      "/assets/procedures/stitch-removal-2.jpg",
+      "/assets/procedures/stitch-removal-3.jpg",
+      "/assets/procedures/stitch-removal-4.jpg",
+    ],
+  },
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -238,6 +300,166 @@ function StatsBar() {
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ProcedureSlider({ images, name }: { images: string[]; name: string }) {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const goTo = useCallback(
+    (idx: number, dir: number) => {
+      setDirection(dir);
+      setCurrent((idx + images.length) % images.length);
+    },
+    [images.length],
+  );
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  if (images.length === 0) {
+    return (
+      <div
+        className="w-full h-52 rounded-xl flex flex-col items-center justify-center gap-3"
+        style={{
+          background:
+            "linear-gradient(135deg, oklch(0.38 0.085 218), oklch(0.55 0.10 210))",
+        }}
+      >
+        <span className="text-4xl opacity-60">🖼️</span>
+        <p className="text-white/70 text-sm font-medium">Images coming soon</p>
+      </div>
+    );
+  }
+
+  const variants = {
+    enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: number) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0 }),
+  };
+
+  return (
+    <div className="w-full">
+      {/* Slider */}
+      <div className="relative w-full h-52 rounded-xl overflow-hidden bg-muted">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.img
+            key={current}
+            src={images[current]}
+            alt={`${name} slide ${current + 1}`}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+
+        {/* Arrows */}
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous image"
+              onClick={() => goTo(current - 1, -1)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-colors z-10"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next image"
+              onClick={() => goTo(current + 1, 1)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-colors z-10"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Dot indicators */}
+      {images.length > 1 && (
+        <div className="flex justify-center gap-1.5 mt-3">
+          {images.map((_, i) => (
+            <button
+              key={`dot-${
+                // biome-ignore lint/suspicious/noArrayIndexKey: dots use index intentionally
+                i
+              }`}
+              type="button"
+              aria-label={`Go to image ${i + 1}`}
+              onClick={() => goTo(i, i > current ? 1 : -1)}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === current ? "20px" : "8px",
+                height: "8px",
+                background:
+                  i === current
+                    ? "oklch(0.55 0.10 210)"
+                    : "oklch(0.75 0.04 215)",
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProceduresSection() {
+  return (
+    <section id="procedures" className="py-16 px-4 max-w-6xl mx-auto">
+      <SectionHeading
+        title="Our Procedures"
+        subtitle="Professional medical procedures performed safely and hygienically at your home by our certified nursing team."
+      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {PROCEDURES.map((proc, i) => (
+          <motion.div
+            key={proc.id}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.45 }}
+            className="bg-card rounded-2xl shadow-card border border-border p-5 flex flex-col gap-4"
+            data-ocid={`procedures.item.${proc.id}`}
+          >
+            {/* Slider or placeholder */}
+            <ProcedureSlider images={proc.images} name={proc.name} />
+
+            {/* Info */}
+            <div className="flex flex-col gap-2 flex-1">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">{proc.icon}</span>
+                <h3 className="font-bold text-base text-foreground">
+                  {proc.name}
+                </h3>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                {proc.desc}
+              </p>
+              <button
+                type="button"
+                className="text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors mt-1 underline underline-offset-2 self-start"
+                onClick={() => scrollTo("contact")}
+              >
+                Book Procedure →
+              </button>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
@@ -590,7 +812,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
-              src="/assets/whatsapp_image_2026-04-06_at_10.14.16_pm-019d63f8-ba86-725f-bd7f-278a5b03d37e.jpeg"
+              src="/assets/generated/logo-transparent.dim_200x200.png"
               alt="NewLife Home Health Care"
               className="h-14 w-14 object-contain rounded-full bg-white/20 p-1"
             />
@@ -766,6 +988,9 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── Procedures ───────────────────────────────────────── */}
+      <ProceduresSection />
+
       {/* ── CTA Banner ───────────────────────────────────────── */}
       <section className="gradient-cta py-14 px-4">
         <motion.div
@@ -939,7 +1164,7 @@ export default function App() {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <img
-                src="/assets/whatsapp_image_2026-04-06_at_10.14.16_pm-019d63f8-ba86-725f-bd7f-278a5b03d37e.jpeg"
+                src="/assets/generated/logo-transparent.dim_200x200.png"
                 alt="NewLife logo"
                 className="h-10 w-10 object-contain rounded-full bg-white/10 p-0.5"
               />
