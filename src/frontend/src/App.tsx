@@ -59,72 +59,27 @@ const PRODUCTS = [
   {
     name: "Adult Diapers",
     desc: "High-absorbency adult protective underwear for comfort and dignity",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d6d6c-55bc-71e0-8100-52148c9444e5.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d6de3-ab47-74d5-bf19-5f147982cdd3.jpeg",
   },
   {
     name: "Diaper Pants",
     desc: "Pull-up style disposable pants for active users",
-    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d6d4e-4042-7536-b4bf-f17962a5d194.jpg",
+    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d6de3-adb5-77bb-810b-cb1a2553fbba.jpg",
   },
   {
     name: "Underpads / Bed Pads",
     desc: "Waterproof disposable bed protection pads",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d6d41-c112-73a5-9fa1-34ef8b5b2e46.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d6de5-d09c-707e-8808-53cbbf3e1b5f.jpeg",
   },
   {
     name: "Nebulizer Machine",
     desc: "Efficient aerosol therapy device for respiratory conditions",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.47.05_pm-019d63ff-7468-76aa-a48d-5e2077598ab3.jpeg",
+    img: "/assets/dr-morepen-cn-10-nebulizer-original-imafkxzjqmhfunvh-019d6de5-d145-710f-ad04-f651273835f5.webp",
   },
   {
     name: "Pulse Oximeter",
     desc: "Fingertip SpO2 and heart rate monitor",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.47.22_pm-019d63ff-7473-73dd-9c78-1a82bd6ffcf4.jpeg",
-  },
-  {
-    name: "Blood Pressure Monitor",
-    desc: "Digital automatic BP monitor for home use",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.48.01_pm-019d63ff-7472-722d-b143-cc480a2addd9.jpeg",
-  },
-  {
-    name: "Glucometer",
-    desc: "Accurate blood glucose monitoring kit",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.48.15_pm-019d63ff-747b-73ea-850d-0205bb5cc04c.jpeg",
-  },
-  {
-    name: "Thermometer",
-    desc: "Digital non-contact infrared thermometer",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.48.35_pm-019d63ff-743c-7181-9cdf-1e406195aaac.jpeg",
-  },
-  {
-    name: "Surgical Gloves",
-    desc: "Sterile latex gloves for clinical and home use",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.48.51_pm-019d63ff-7383-773c-9725-92055a35c18e.jpeg",
-  },
-  {
-    name: "Catheter",
-    desc: "Foley urinary catheters in multiple French sizes",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.49.13_pm-019d63ff-748d-73ce-8742-98a0c18ccf23.jpeg",
-  },
-  {
-    name: "Uro Bag",
-    desc: "Urine drainage collection bag with anti-reflux valve",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.48.01_pm-019d6d46-6a4f-739c-b983-af9fee210905.jpeg",
-  },
-  {
-    name: "Syringe & Needles",
-    desc: "Disposable sterile syringes in multiple capacities",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.49.48_pm-019d63ff-733a-7728-8276-063f245bf911.jpeg",
-  },
-  {
-    name: "IV Cannula",
-    desc: "Intravenous cannulas for safe fluid administration",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d63ff-733c-7266-b797-790dece5d8d6.jpeg",
-  },
-  {
-    name: "Bladder Wash Syringe",
-    desc: "Sterile syringe used for bladder irrigation and washing procedures, ideal for catheter care at home.",
-    img: "/assets/whatsapp_image_2026-04-07_at_1.41.59_am-019d6d4a-7e77-710d-9187-b33928d18fc0.jpeg",
+    img: "/assets/download-019d6dc8-fa24-72af-afea-6b41f0256573.jpg",
   },
 ];
 
@@ -1125,13 +1080,13 @@ export default function App() {
               />
               <div className="rounded-xl overflow-hidden border border-border shadow-card">
                 <iframe
-                  src="https://maps.google.com/maps?q=Bidhannagar+Kolkata&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=22.558167,88.417167&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="250"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  title="NewLife location map"
+                  title="NewLife Home Health Care — 22°33′29.4″N 88°25′01.8″E"
                 />
               </div>
             </div>
