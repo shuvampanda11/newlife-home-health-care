@@ -59,17 +59,17 @@ const PRODUCTS = [
   {
     name: "Adult Diapers",
     desc: "High-absorbency adult protective underwear for comfort and dignity",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d63ff-747b-72ff-9809-00c76a043a2d.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d6d6c-55bc-71e0-8100-52148c9444e5.jpeg",
   },
   {
     name: "Diaper Pants",
     desc: "Pull-up style disposable pants for active users",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.32.20_pm-019d63ff-7489-72db-a7f4-bdaaac303165.jpeg",
+    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d6d4e-4042-7536-b4bf-f17962a5d194.jpg",
   },
   {
     name: "Underpads / Bed Pads",
     desc: "Waterproof disposable bed protection pads",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.32.20_pm_1-019d63ff-7472-7570-9105-5d4351a77e5d.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d6d41-c112-73a5-9fa1-34ef8b5b2e46.jpeg",
   },
   {
     name: "Nebulizer Machine",
@@ -109,7 +109,7 @@ const PRODUCTS = [
   {
     name: "Uro Bag",
     desc: "Urine drainage collection bag with anti-reflux valve",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.49.26_pm-019d63ff-72ec-754d-9f73-fe2075deca25.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.48.01_pm-019d6d46-6a4f-739c-b983-af9fee210905.jpeg",
   },
   {
     name: "Syringe & Needles",
@@ -120,6 +120,11 @@ const PRODUCTS = [
     name: "IV Cannula",
     desc: "Intravenous cannulas for safe fluid administration",
     img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d63ff-733c-7266-b797-790dece5d8d6.jpeg",
+  },
+  {
+    name: "Bladder Wash Syringe",
+    desc: "Sterile syringe used for bladder irrigation and washing procedures, ideal for catheter care at home.",
+    img: "/assets/whatsapp_image_2026-04-07_at_1.41.59_am-019d6d4a-7e77-710d-9187-b33928d18fc0.jpeg",
   },
 ];
 

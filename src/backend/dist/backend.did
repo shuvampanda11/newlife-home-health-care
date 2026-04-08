@@ -1,0 +1,28 @@
+type Time = int;
+type Inquiry = 
+ record {
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   timestamp: Time;
+ };
+type Booking = 
+ record {
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   preferredDate: text;
+   serviceType: text;
+   timestamp: Time;
+ };
+service : {
+  getAllBookings: () -> (vec Booking) query;
+  getAllInquiries: () -> (vec Inquiry) query;
+  submitBooking: (name: text, phone: text, serviceType: text, preferredDate:
+   text, message: text) -> (nat);
+  submitInquiry: (name: text, phone: text, email: text, message: text) ->
+   (nat);
+}

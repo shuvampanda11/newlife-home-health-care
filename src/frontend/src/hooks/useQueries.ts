@@ -1,11 +1,8 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useActor } from "./useActor";
+import { useMutation } from "@tanstack/react-query";
 
 export function useSubmitBooking() {
-  const { actor } = useActor();
-  const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({
+    mutationFn: async ({
       name,
       phone,
       serviceType,
@@ -18,26 +15,23 @@ export function useSubmitBooking() {
       preferredDate: string;
       message: string;
     }) => {
-      if (!actor) throw new Error("Actor not ready");
-      return actor.submitBooking(
-        name,
-        phone,
-        serviceType,
-        preferredDate,
-        message,
-      );
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["bookings"] });
+      const text = `New Booking from NewLife Home Health Care website:
+
+Name: ${name}
+Phone: ${phone}
+Service: ${serviceType}
+Preferred Date: ${preferredDate}
+Message: ${message}`;
+      const url = `https://wa.me/918670456104?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+      return { success: true };
     },
   });
 }
 
 export function useSubmitInquiry() {
-  const { actor } = useActor();
-  const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({
+    mutationFn: async ({
       name,
       phone,
       email,
@@ -48,11 +42,15 @@ export function useSubmitInquiry() {
       email: string;
       message: string;
     }) => {
-      if (!actor) throw new Error("Actor not ready");
-      return actor.submitInquiry(name, phone, email, message);
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["inquiries"] });
+      const text = `New Enquiry from NewLife Home Health Care website:
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Message: ${message}`;
+      const url = `https://wa.me/918670456104?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+      return { success: true };
     },
   });
 }
