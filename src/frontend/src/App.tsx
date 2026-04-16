@@ -65,22 +65,22 @@ const PRODUCTS = [
   {
     name: "Adult Diapers",
     desc: "High-absorbency adult protective underwear for comfort and dignity",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d6e4e-5e7d-741a-9f06-302d4d21b2c2.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.50.03_pm-019d95a4-9a1d-74f5-88b8-dc4711e38b22.jpeg",
   },
   {
     name: "Diaper Pants",
     desc: "Pull-up style disposable pants for active users",
-    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d6e4e-5d0a-727b-b1f4-74b7a8c81ae9.jpg",
+    img: "/assets/svaach_economy_adult_diaper_pants_medium_img_02_1-019d95a4-97dc-7408-b21a-eba7ad1456e0.jpg",
   },
   {
     name: "Underpads",
     desc: "Waterproof disposable bed protection pads",
-    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d6e4e-5e6d-71ab-916e-ef605932baa0.jpeg",
+    img: "/assets/whatsapp_image_2026-04-06_at_10.27.33_pm-019d95a4-97d1-7781-ae25-3cf2f9bdb5e9.jpeg",
   },
   {
     name: "Nebulizer Machine",
     desc: "Efficient aerosol therapy device for respiratory conditions",
-    img: "/assets/dr-morepen-cn-10-nebulizer-original-imafkxzjqmhfunvh-019d6e4e-5ecd-74b3-b2ca-fc93216ff2f4.webp",
+    img: "/assets/dr-morepen-cn-10-nebulizer-original-imafkxzjqmhfunvh-019d95a4-97fc-772d-9c3a-a9f533074aad.webp",
   },
   {
     name: "Pulse Oximeter",
